@@ -3,7 +3,7 @@
 client_id = "eccd2b6ad05a7024749b7271d64ed65e"
 name = "ai-content-generator"
 handle = "ai-content-generator-5"
-application_url = "https://shopify.dev/apps/default-app-home"
+application_url = "https://shpify-ai-content-generator.onrender.com"
 embedded = true
 
 [build]
@@ -14,7 +14,11 @@ include_config_on_deploy = true
 scopes = ""
 
 [auth]
-redirect_urls = [ "https://shopify.dev/apps/default-app-home/api/auth" ]
+redirect_urls = [
+    "https://shpify-ai-content-generator.onrender.com/auth/callback",
+    "https://shpify-ai-content-generator.onrender.com/auth/shopify/callback",
+    "https://shpify-ai-content-generator.onrender.com/api/auth/callback"
+]
 
 [webhooks]
 api_version = "2024-07"

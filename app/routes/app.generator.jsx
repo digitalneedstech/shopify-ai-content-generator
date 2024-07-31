@@ -2,6 +2,7 @@ import { Form, useFetcher, useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/node";
 import React, { useEffect, useState } from "react";
 import {
+  EmptyState,
   IndexTable,
   Layout,
   Page,
@@ -90,7 +91,7 @@ export default function GeneratorComponent() {
       setUpdateInProgress(false);
     }
   }, [productId, shopify]);
-  const products = user.data.products.edges.map((val) => {
+  const products = user.data.products!=null || user.data.products.length>0 ?user.data.products.edges.map((val) => {
     return {
       id: val.node.id,
       title: val.node.title,
@@ -98,7 +99,7 @@ export default function GeneratorComponent() {
       imageUrl:
         val.node.featuredImage == null ? null : val.node.featuredImage.url,
     };
-  });
+  }):[];
   const { selectedResources, allResourcesSelected, handleSelectionChange } =
     useIndexResourceState(products);
 
@@ -251,6 +252,18 @@ export default function GeneratorComponent() {
 
       <Layout>
         <Layout.Section>
+          {products.length==0 ? 
+          <EmptyState
+          heading="No Products Found"
+          action={{content: 'Add Products'}}
+          secondaryAction={{
+            content: 'Learn more',
+            url: 'https://help.shopify.com',
+          }}
+          image="https://cdn.shopify.com/s/files/1/0262/4071/2726/files/emptystate-files.png"
+        >
+          <p>Track and receive your incoming inventory from suppliers.</p>
+        </EmptyState>:
           <Form method="post">
             <IndexTable
               resourceName={{
@@ -277,6 +290,7 @@ export default function GeneratorComponent() {
               {rowMarkup}
             </IndexTable>
           </Form>
+}
         </Layout.Section>
       </Layout>
     </Page>
