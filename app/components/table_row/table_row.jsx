@@ -10,7 +10,6 @@ export default function TableRowComponent({ id, title, imageUrl, description, in
         position={index}
         disabled={disabled}
       >
-        <IndexTable.Cell>{id}</IndexTable.Cell>
 
         <IndexTable.Cell>
           <Thumbnail source={imageUrl} alt="Black choker necklace" />

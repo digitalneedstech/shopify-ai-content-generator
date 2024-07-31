@@ -3,7 +3,7 @@
 client_id = "f2b7df60e97649de18a9d3fd50c2502d"
 name = "Content Generator"
 handle = "content-generator-5"
-application_url = "https://shpify-ai-content-generator.onrender.com"
+application_url = "https://bp-beer-garlic-ipod.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_products,write_products"
 
 [auth]
 redirect_urls = [
-    "https://shpify-ai-content-generator.onrender.com/auth/callback",
-    "https://shpify-ai-content-generator.onrender.com/auth/shopify/callback",
-    "https://shpify-ai-content-generator.onrender.com/api/auth/callback"
+  "https://bp-beer-garlic-ipod.trycloudflare.com/auth/callback",
+  "https://bp-beer-garlic-ipod.trycloudflare.com/auth/shopify/callback",
+  "https://bp-beer-garlic-ipod.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

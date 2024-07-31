@@ -121,7 +121,7 @@ export default function GeneratorComponent() {
     const product = products.filter(
       (product) => product.id == selectedResources[0],
     )[0];
-    const imageUrl = product.imageUrl;
+    const base64EncodedString = await getImageBase64Encoded(product.imageUrl);
     const vision = initializeGenerativeAIInstance("google");
     const title_input = [
       new HumanMessage({
@@ -132,7 +132,7 @@ export default function GeneratorComponent() {
           },
           {
             type: "image_url",
-            image_url: `data:image/png;base64,${getImageBase64Encoded(imageUrl)}`,
+            image_url: `data:image/png;base64,${base64EncodedString}`,
           },
         ],
       }),
@@ -146,7 +146,7 @@ export default function GeneratorComponent() {
           },
           {
             type: "image_url",
-            image_url: `data:image/png;base64,${getImageBase64Encoded(imageUrl)}`,
+            image_url: `data:image/png;base64,${base64EncodedString}`,
           },
         ],
       }),
@@ -214,41 +214,51 @@ export default function GeneratorComponent() {
       <TitleBar title="Update Products">
         
         </TitleBar>
-      <ModalComponent id="loader-modal" type="loading"></ModalComponent>
-      <Modal id="loader-modal">
+        <Modal id="loader-modal">
         <Spinner accessibilityLabel="Spinner example" size="large" />
         <TitleBar title="Loading"></TitleBar>
       </Modal>
-      <ModalComponent
-        id="title-modal"
-        message="Are you sure you want to generate the title?"
-        noCallback={() => {
+      
+
+<Modal id="title-modal">
+      <p style={{ padding: "10px" }}>Are you sure you want to generate the title?</p>
+
+      <TitleBar title="Confirmation Message">
+        <button onClick={() => {
           shopify.modal.hide("title-modal").then((val) => {
             shopify.toast.show("Thanks", {
               duration: 5000,
             });
           });
-        }}
-        yesCallBack={() => {
+        }}>No</button>
+        <button onClick={() =>{
           setUpdateInProgress(true);
           updateProductTitle("title");
-        }}
-      ></ModalComponent>
-      <ModalComponent
-        id="description-modal"
-        message="Are you sure you want to generate the description?"
-        noCallback={() => {
-          shopify.modal.hide().then((val) => {
+        }} variant="primary">
+          Yes
+        </button>
+      </TitleBar>
+    </Modal>
+
+<Modal id="description-modal">
+      <p style={{ padding: "10px" }}>Are you sure you want to generate the description?</p>
+
+      <TitleBar title="Confirmation Message">
+        <button onClick={() => {
+          shopify.modal.hide("description-modal").then((val) => {
             shopify.toast.show("Thanks", {
               duration: 5000,
             });
           });
-        }}
-        yesCallBack={() => {
+        }}>No</button>
+        <button onClick={() => {
           setUpdateInProgress(true);
           updateProductTitle("description");
-        }}
-      ></ModalComponent>
+        }} variant="primary">
+          Yes
+        </button>
+      </TitleBar>
+    </Modal>
 
       <Layout>
         <Layout.Section>
