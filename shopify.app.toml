@@ -1,0 +1,33 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "f2b7df60e97649de18a9d3fd50c2502d"
+name = "Content Generator"
+handle = "content-generator-5"
+application_url = "https://local-brunette-downloads-comment.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "testpiyush12.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_products,write_products"
+
+[auth]
+redirect_urls = [
+  "https://local-brunette-downloads-comment.trycloudflare.com/auth/callback",
+  "https://local-brunette-downloads-comment.trycloudflare.com/auth/shopify/callback",
+  "https://local-brunette-downloads-comment.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-01"
+
+  [[webhooks.subscriptions]]
+  uri = "pubsub://content-generator:content"
+  compliance_topics = [ "customers/redact", "customers/data_request", "shop/redact" ]
+
+[pos]
+embedded = false
