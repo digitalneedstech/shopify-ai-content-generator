@@ -1,27 +1,24 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "f2b7df60e97649de18a9d3fd50c2502d"
-name = "Content Generator"
+name = "content-generator"
 handle = "content-generator-5"
-application_url = "https://bp-beer-garlic-ipod.trycloudflare.com"
+application_url = "https://shpify-ai-content-generator.onrender.com"
 embedded = true
 
 [build]
-automatically_update_urls_on_dev = true
-dev_store_url = "testpiyush12.myshopify.com"
-include_config_on_deploy = true
+include_config_on_deploy = false
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "read_products,write_products"
+scopes = ""
 
 [auth]
 redirect_urls = [
-  "https://bp-beer-garlic-ipod.trycloudflare.com/auth/callback",
-  "https://bp-beer-garlic-ipod.trycloudflare.com/auth/shopify/callback",
-  "https://bp-beer-garlic-ipod.trycloudflare.com/api/auth/callback"
+  "https://shpify-ai-content-generator.onrender.com/auth/callback",
+  "https://shpify-ai-content-generator.onrender.com/auth/shopify/callback",
+  "https://shpify-ai-content-generator.onrender.com/api/auth/callback"
 ]
-
 [webhooks]
 api_version = "2024-01"
 
