@@ -280,7 +280,6 @@ export default function GeneratorComponent() {
               }
               onSelectionChange={handleSelectionChange}
               headings={[
-                { title: "Id" },
                 { title: "Image" },
                 { title: "Title" },
                 { title: "Description" },
