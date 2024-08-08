@@ -13,7 +13,6 @@ import { authenticate } from "../shopify.server";
 import { Modal, TitleBar, useAppBridge } from "@shopify/app-bridge-react";
 import { HumanMessage } from "@langchain/core/messages";
 import TableRowComponent from "../components/table_row/table_row";
-import ModalComponent from "../components/modal/modal";
 import {
   getImageBase64Encoded,
   initializeGenerativeAIInstance,
