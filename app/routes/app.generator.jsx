@@ -190,7 +190,7 @@ export default function GeneratorComponent() {
     {
       content: "Generate title",
       onAction: () => {
-        if(selectedResources.length>1){
+        if(selectedResources.length>1 && localStorage.getItem("plan")!="Monthly Subscription"){
           shopify.toast.show("Only one product can be selected")
         }else{
           shopify.modal.show("title-modal");

@@ -167,6 +167,7 @@ export default function Index() {
   }, [productId, shopify]);
   const generateProduct = () => fetcher.submit({}, { method: "POST" });
   const { plan } = useLoaderData();
+  localStorage.setItem("plan",plan.name);
   console.log("plan",plan.name);
   return (
     <Page>
