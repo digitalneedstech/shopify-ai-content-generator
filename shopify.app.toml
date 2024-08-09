@@ -3,7 +3,7 @@
 client_id = "f2b7df60e97649de18a9d3fd50c2502d"
 name = "AI Content Generator"
 handle = "ai-content-generator"
-application_url = "https://minneapolis-mostly-humor-excel.trycloudflare.com"
+application_url = "https://ai-content-generator-kk0a.onrender.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://minneapolis-mostly-humor-excel.trycloudflare.com/auth/callback",
-  "https://minneapolis-mostly-humor-excel.trycloudflare.com/auth/shopify/callback",
-  "https://minneapolis-mostly-humor-excel.trycloudflare.com/api/auth/callback"
+  "https://ai-content-generator-kk0a.onrender.com/auth/callback",
+  "https://ai-content-generator-kk0a.onrender.com/auth/shopify/callback",
+  "https://ai-content-generator-kk0a.onrender.com/api/auth/callback"
 ]
 
 [webhooks]

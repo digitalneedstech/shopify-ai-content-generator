@@ -16,7 +16,7 @@ export function initializeGenerativeAIInstance(type){
     return new ChatGoogleGenerativeAI({
         model: "gemini-1.5-flash-001",
         maxOutputTokens: 2048,
-        apiKey: "AIzaSyAqP1tbsekrAoZjSM02OiefzPw_nMzPs9I",
+        apiKey: "AIzaSyAqP1tbsekrAoZjSM02OiefzPw_nMzPs9I"
         
       });
 }

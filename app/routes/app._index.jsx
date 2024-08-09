@@ -130,21 +130,25 @@ let planData = [
       "1 Product Title Update at a time",
       "1 Product Description Update at a time",
       "Automatic Update Of Product Title",
-      "Automatic Update Of Product Description"
+      "Automatic Update Of Product Description",
+      "Unlimited Number of title updates in a day",
+      "Unlimited Number of description updates in a day"
     ]
   },
   {
     title: "Pro",
     description: "Pro plan with advanced features",
-    price: "10",
+    price: "5",
     name: "Monthly Subscription",
     action: "Upgrade to pro",
     url: "/app/upgrade",
     features: [
-      "Multiple Product Title Update at a time",
-      "Multiple Product Description Update at a time",
+      "5 Products Titles Update at a time",
+      "5 Products Description Update at a time",
       "Automatic Update Of Product Title",
-      "Automatic Update Of Product Description"
+      "Automatic Update Of Product Description",
+      "Unlimited Number of title updates in a day",
+      "Unlimited Number of description updates in a day"
     ]
   },
 ]
@@ -167,7 +171,6 @@ export default function Index() {
   }, [productId, shopify]);
   const generateProduct = () => fetcher.submit({}, { method: "POST" });
   const { plan } = useLoaderData();
-  localStorage.setItem("plan",plan.name);
   console.log("plan",plan.name);
   return (
     <Page>
