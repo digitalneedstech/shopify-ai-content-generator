@@ -11,7 +11,7 @@ export async function loader({ request }) {
     onFailure: async () => billing.request({
       plan: MONTHLY_PLAN,
       isTest: true,
-      returnUrl: `https://admin.shopify.com/store/${myshop}/apps/content-generator-5/app`
+      returnUrl: `https://admin.shopify.com/store/${myshop}/apps/ai-content-generator-5/app`
     }),
   });
 };
