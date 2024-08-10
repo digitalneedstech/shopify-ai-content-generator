@@ -128,27 +128,22 @@ let planData = [
     url: "/app/upgrade",
     features: [
       "1 Product Title Update at a time",
-      "1 Product Description Update at a time",
-      "Automatic Update Of Product Title",
-      "Automatic Update Of Product Description",
-      "Unlimited Number of title updates in a day",
-      "Unlimited Number of description updates in a day"
+"1 Product Description Update at a time",
+"Automatic Update Of Product Title/Description"
+ 
     ]
   },
   {
     title: "Pro",
     description: "Pro plan with advanced features",
     price: "5",
-    name: "Monthly Subscription",
+    name: "Pro",
     action: "Upgrade to pro",
     url: "/app/upgrade",
     features: [
-      "5 Products Titles Update at a time",
-      "5 Products Description Update at a time",
-      "Automatic Update Of Product Title",
-      "Automatic Update Of Product Description",
-      "Unlimited Number of title updates in a day",
-      "Unlimited Number of description updates in a day"
+      "5 Product Title Update at a time",
+"5 Product Description Update at a time",
+"Automatic Update Of Product Title/Description"
     ]
   },
 ]
@@ -250,8 +245,8 @@ export default function Index() {
                   <Divider />
                 </div>
 
-                { plan_item.name == "Monthly Subscription" ?
-                  plan.name != "Monthly Subscription" ? (
+                { plan_item.name == "Pro" ?
+                  plan.name != "Pro" ? (
                     <Button primary url={plan_item.url}>
                       {plan_item.action}
                     </Button>

@@ -8,8 +8,8 @@ import {
 import { PrismaSessionStorage } from "@shopify/shopify-app-session-storage-prisma";
 import { restResources } from "@shopify/shopify-api/rest/admin/2024-07";
 import prisma from "./db.server";
-export const MONTHLY_PLAN = "Monthly Subscription";
-export const ANNUAL_PLAN = "Annual Subscription";
+export const MONTHLY_PLAN = "Pro";
+export const ANNUAL_PLAN = "Pro";
 const shopify = shopifyApp({
   apiKey: process.env.SHOPIFY_API_KEY,
   apiSecretKey: process.env.SHOPIFY_API_SECRET || "",

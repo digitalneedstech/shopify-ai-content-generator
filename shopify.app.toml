@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "f2b7df60e97649de18a9d3fd50c2502d"
-name = "AI Content Generator"
+name = "Contentify"
 handle = "digitalneeds-ai-content-generator-5"
 application_url = "https://ai-content-generator-kk0a.onrender.com"
 embedded = true
