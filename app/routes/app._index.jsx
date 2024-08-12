@@ -27,7 +27,7 @@ export async function loader({ request }) {
     // Attempt to check if the shop has an active payment for any plan
     const billingCheck = await billing.require({
       plans: [MONTHLY_PLAN, ANNUAL_PLAN],
-      isTest: true,
+      isTest: false,
       // Instead of redirecting on failure, just catch the error
       onFailure: () => {
         throw new Error('No active plan');

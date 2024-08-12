@@ -10,7 +10,7 @@ export async function loader({ request }) {
     plans: [MONTHLY_PLAN],
     onFailure: async () => billing.request({
       plan: MONTHLY_PLAN,
-      isTest: true,
+      isTest: false,
       returnUrl: `https://admin.shopify.com/store/${myshop}/apps/digitalneeds-ai-content-generator-5/app`
     }),
   });
