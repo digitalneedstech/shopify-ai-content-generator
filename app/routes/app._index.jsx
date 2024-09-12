@@ -4,20 +4,18 @@ import { json } from "@remix-run/node";
 import { useFetcher, useLoaderData } from "@remix-run/react";
 import {
   Page,
-  Layout,
   Text,
   Card,
   
   BlockStack,
   Button,
-  CalloutCard,
   Divider,
   Grid,
   Box,
   ExceptionList,
-  InlineGrid
+  List
 } from "@shopify/polaris";
-import { TitleBar, useAppBridge } from "@shopify/app-bridge-react";
+import { useAppBridge } from "@shopify/app-bridge-react";
 import { ANNUAL_PLAN, authenticate, MONTHLY_PLAN } from "../shopify.server";
 
 export async function loader({ request }) {
@@ -123,7 +121,7 @@ let planData = [
     title: "Free",
     description: "Free plan with basic features",
     price: "0",
-    action: "Upgrade to pro",
+    action: "Upgrade to Pro",
     name: "Free",
     url: "/app/upgrade",
     features: [
@@ -169,40 +167,60 @@ export default function Index() {
   console.log("plan",plan.name);
   return (
     <Page>
-      <ui-title-bar title="Pricing" />
-      {plan.name=="Free" ?
+      
+      <ui-title-bar title="Contentify - AI Content Creator">
+      <Button primary url="/app/upgrade">
+                      Upgrade to Pro
+                    </Button>
+        </ui-title-bar>
+      
+
       <Card roundedAbove="sm">
-      <BlockStack gap="200">
-        <InlineGrid columns="1fr auto">
-          <Text as="h2" variant="headingSm">
-            Free
-          </Text>
-          
-        </InlineGrid>
-        <Text as="p" variant="bodyMd">
-        You're currently on free plan. Upgrade to pro to unlock more features.
-        </Text>
-      </BlockStack>
-    </Card>:
-      <CalloutCard
-          title="Change your plan"
-          illustration="https://cdn.shopify.com/s/files/1/0583/6465/7734/files/tag.png?v=1705280535"
-          primaryAction={{
-            content: 'Cancel Plan',
-            url: '/app/cancel',
-          }}
-        >
-          { plan.name == "Monthly subscription" ? (
-            <p>
-              You're currently on pro plan. All features are unlocked.
-            </p>
-          ) : (
-            <p>
-              You're currently on free plan. Upgrade to pro to unlock more features.
-            </p>
-          )}
-      </CalloutCard>
-}
+      <Text variant="headingLg" as="h6">
+        Generate content with our easy flow
+      </Text>
+      <br/>
+      <List type="bullet">
+      <List.Item><Text as="h2" variant="headingSm">
+            Navigate to Text Generator page of this app from sidebar 
+          </Text></List.Item>
+      <List.Item><Text as="h2" variant="headingSm">
+            Select the products to update:
+          </Text></List.Item>
+      <List.Item><Text as="h2" variant="headingSm">
+            Select whether you want to generate titles, descriptions
+          </Text></List.Item>
+      <List.Item><Text as="h2" variant="headingSm">
+            Click On Generate 
+          </Text></List.Item>
+    </List>
+
+      </Card>
+<div style={{ margin: "0.5rem 0"}}>
+        <Divider />
+      </div>
+      <Card roundedAbove="sm">
+        <Text variant="headingLg" as="h6">
+        Have Questions?
+      </Text>
+      <br/>
+      <Text as="p" fontWeight="regular">
+      Got questions or need a hand with anything related to your entrepreneurial journey? We're here to help.
+      </Text>
+      <Text as="p" fontWeight="regular">
+Reach out anytime—We would love to assist and learn from your journey!.
+</Text>
+<br></br>
+<Text as="p" fontWeight="regular">
+We're available at</Text> <Text as="p" fontWeight="bold">digitalneeds.tech@gmail.com
+      </Text>
+      </Card>
+
+      <div style={{ margin: "0.5rem 0"}}>
+        <Divider />
+      </div>
+
+
       <div style={{ margin: "0.5rem 0"}}>
         <Divider />
       </div>
@@ -263,32 +281,6 @@ export default function Index() {
 
       </Grid>
 
-    </Page>
-  );
-  return (
-    <Page>
-      <TitleBar title="What can you get via this app?">
-        
-      </TitleBar>
-      <BlockStack gap="500">
-        <Layout>
-          <Layout.Section>
-            <Card>
-              <BlockStack gap="500">
-                <BlockStack gap="200">
-                  <Text as="h2" variant="headingMd">
-                    Congrats on installing content generation app 🎉
-                  </Text>
-                  <Button url="/app/upgrade">Upgrade</Button>
-                  
-                </BlockStack>
-                
-              </BlockStack>
-            </Card>
-          </Layout.Section>
-          
-        </Layout>
-      </BlockStack>
     </Page>
   );
 }
